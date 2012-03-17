@@ -1,0 +1,54 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (3.2.2)
+      i18n (~> 0.6)
+      multi_json (~> 1.0)
+    addressable (2.2.7)
+    boxcar_api (1.2.0)
+      httparty (>= 0.6.1)
+    foreman (0.41.0)
+      thor (>= 0.13.6)
+    heroku (2.21.3)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.1)
+      rest-client (~> 1.6.1)
+      rubyzip
+    httparty (0.8.1)
+      multi_json
+      multi_xml
+    i18n (0.6.0)
+    launchy (2.0.5)
+      addressable (~> 2.2.6)
+    mail (2.4.4)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime (0.1)
+    mime-types (1.17.2)
+    multi_json (1.1.0)
+    multi_xml (0.4.2)
+    netrc (0.7.1)
+    polyglot (0.3.3)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    ruby-gmail (0.2.1)
+      mail (>= 2.2.1)
+      shared-mime-info
+    rubyzip (0.9.6.1)
+    shared-mime-info (0.1)
+    thor (0.14.6)
+    treetop (1.4.10)
+      polyglot
+      polyglot (>= 0.3.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport
+  boxcar_api
+  foreman
+  heroku
+  mime
+  ruby-gmail
