@@ -23,19 +23,20 @@ unless boxcar_key.present? && boxcar_secret.present?
   exit
 end
 
-notified = Set.new
 
 while true
   puts "Checking gmail"
   gmail = Gmail.new(username, password)
   emails = gmail.inbox.emails(:unread)
-  count = emails.count { |e| !notified.include?(e.uid) }
-  puts "Found #{count} unread emails"
-  if count > 0
+  emails.each do |e|
+    from = e.from.first.name
+    msg = e.subject
+    puts "  #{from}: #{msg}"
     provider = BoxcarAPI::Provider.new(boxcar_key, boxcar_secret)
-    provider.notify(username, "You have #{count} unread emails")
+    provider.notify(username, msg,
+      :from_screen_name => from,
+      :from_remote_service_id => e.uid)
   end
-  emails.each { |e| notified.add(e.uid) }
   gmail.logout
   puts "Done checking, sleeping now"
   $stdout.flush
