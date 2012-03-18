@@ -6,7 +6,7 @@ require 'boxcar_api'
 require 'gmail'
 require 'active_support/all'
 
-POLL_AMOUNT = 30
+POLL_INTERVAL = ENV['POLL_INTERVAL'] || 30
 
 username = ENV['GMAIL_USERNAME']
 password = ENV['GMAIL_PASSWORD']
@@ -39,5 +39,5 @@ while true
   gmail.logout
   puts "Done checking, sleeping now"
   $stdout.flush
-  sleep POLL_AMOUNT
+  sleep POLL_INTERVAL
 end
