@@ -7,6 +7,7 @@ require 'gmail'
 require 'active_support/all'
 
 POLL_INTERVAL = ENV['POLL_INTERVAL'] || 30
+NOTIFY_ACCOUNT = ENV['GMAIL_USERNAME'] || ENV['GMAIL_USERNAME_0']
 
 def get_account_info
   accounts = {}
@@ -14,12 +15,10 @@ def get_account_info
   count = count.to_i
   if count == 1
     acounts[ENV['GMAIL_USERNAME']] = ENV['GMAIL_PASSWORD']
-    NOTIFY_ACCOUNT = ENV['GMAIL_USERNAME']
   else
     count.times do |i|
       acounts[ENV["GMAIL_USERNAME_#{i}"]] = ENV["GMAIL_PASSWORD_#{i}"]
     end
-    NOTIFY_ACCOUNT = ENV['GMAIL_USERNAME_0']
   end
   accounts
 end
