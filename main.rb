@@ -14,10 +14,10 @@ def get_account_info
   count = ENV['ACCOUNT_COUNT'] || 1
   count = count.to_i
   if count == 1
-    acounts[ENV['GMAIL_USERNAME']] = ENV['GMAIL_PASSWORD']
+    accounts[ENV['GMAIL_USERNAME']] = ENV['GMAIL_PASSWORD']
   else
     count.times do |i|
-      acounts[ENV["GMAIL_USERNAME_#{i}"]] = ENV["GMAIL_PASSWORD_#{i}"]
+      accounts[ENV["GMAIL_USERNAME_#{i}"]] = ENV["GMAIL_PASSWORD_#{i}"]
     end
   end
   accounts
